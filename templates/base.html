@@ -2,13 +2,62 @@
 <html lang="en">
 <head>
     <title>Datazine</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='foundation.css')  }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')  }}">
 </head>
 <body>
-    <h1>dataZINE</h1>
-    <div id="editor"></div>
+    <!-- header -->
+    <div class="row">
+        <div class="eight columns">
+            <h3>datazine</h3>
+        </div>
+    </div>
+    <!-- flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="row">
+                <div class="eight columns">
+                    <ul class="flashes">
+                    {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
 
+    <!-- title -->
+    {% if title %}
+        <div class="row">
+            <div class="eight columns">
+                <h5><a href="{{ url_for('zine', title=title, _external=True) }}">{{ title }}</a></h5>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- editor -->
+    <div class="row">
+        <div class="eight columns">
+            <div id="editor">{% if zine %}{{ zine }}{% endif %}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="eight columns">
+            <button class="button radius" id="publish">Publish</button>
+        </div>
+    </div>
+
+    <!-- results -->
+    <div class="row">
+        <div class="eight columns">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='jquery.min.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='ace.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='mode-sql.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='theme-twilight.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ url_for('static', filename='zine.js') }}" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
