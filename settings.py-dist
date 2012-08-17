@@ -1,0 +1,16 @@
+# R/W storage for published zines
+DATASTORE_HOST = 'localhost'
+DATASTORE_PORT = '5432'
+DATASTORE_NAME = 'datazine'
+DATASTORE_USER = 'publisher'
+DATASTORE_PASS = 'S333kr1tZ'
+
+# R-only source for zine info
+DATASOURCE_HOST = 'localhost'
+DATASOURCE_PORT = '5432'
+DATASOURCE_NAME = 'datazine'
+DATASOURCE_USER = 'publisher'
+DATASOURCE_PASS = 'SE3EKRIT'
+
+# Flask settings
+DEBUG = False

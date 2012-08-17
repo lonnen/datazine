@@ -1,15 +1,13 @@
-# dataZine
+# datazine: inexpensive data publishing as a webapp
 
-inexpensive data publishing webapp
+datazine is a small webapp for exploring a database and sharing the resulting
+queries. It's written in Python, using Flask, and designed for PostgreSQL by
+default.
 
-## How it works
+## Getting Started
 
-Using the editor, iterate on a query until you're satisfied with it. Then save
-the query and get a url you can hit that will return the query results.
-
-## Why?
-
-Exploring your dataset in a shell is easy, but sharing that data can be a
-challenge. Use the web interface to explore your data set, and share ephemeral
-queries with your colleages. Or publish multiple zines to create an ad-hoc api,
-useful for prototyping.
+1. `pip install -r requirements`
+2. cp settings.py-dist settings.py
+3. edit settings.py
+4. create the `publisher` user in your database
+5. from the project root, run a python shell and enter `from datazine import init_db; init_db()`
